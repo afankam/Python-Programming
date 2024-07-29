@@ -1,0 +1,17 @@
+Creating a Virtual Environment
+# run scl-enabled shell and create the virtual environment
+scl enable python33 bash
+virtualenv foo
+cd foo
+source bin/activate
+
+# test your virtualenv by installing Django and printing its version
+pip install django
+python -c &quot;import django; print(django.__file__)&quot;
+
+# now just run &quot;deactivate&quot; to deactivate the environment
+# in current shell session
+deactivate
+# or just &quot;exit&quot; the current shell, which both terminates
+# the virtual environment and SCL-enabled shell
+exit
