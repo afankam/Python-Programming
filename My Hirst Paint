@@ -1,0 +1,74 @@
+import colorgram
+import random
+from turtle import Turtle, Screen
+
+# Extracts colors pallet from saved image
+# image = "DAMIEN-HIRST-Zirconyl.jpg"
+# color_extracted = colorgram.extract(image, 50)
+# print(color_extracted)
+# # Creates a list of colors in rgb format from extracted color_extracted
+# rgb_colors = []
+# for color in color_extracted:
+#     r = color.rgb.r
+#     g = color.rgb.g
+#     b = color.rgb.b
+#     new_color = (r, g, b)
+#     rgb_colors.append(new_color)
+#
+#
+# print(rgb_colors)
+
+color_list = [
+    (245, 241, 233), (227, 234, 242),
+    (245, 234, 239), (233, 242, 236),
+    (208, 158, 96), (234, 213, 101),
+    (41, 104, 144), (149, 78, 57),
+    (130, 168, 194), (202, 137, 162),
+    (148, 65, 83), (24, 40, 55),
+    (204, 90, 68), (169, 159, 55),
+    (139, 180, 152), (193, 89, 121),
+    (59, 117, 93), (26, 44, 36),
+    (223, 171, 187), (63, 46, 34),
+    (91, 154, 104), (44, 161, 182),
+    (237, 212, 7), (226, 175, 167),
+    (13, 96, 75), (41, 59, 99),
+    (179, 189, 213), (99, 125, 168),
+    (65, 33, 43), (104, 43, 59),
+    (172, 204, 182), (108, 46, 38),
+    (158, 204, 215), (76, 69, 37),
+    (9, 87, 109)
+
+]
+
+my_turtle = Turtle()
+my_screen = Screen()
+my_screen.colormode(255)
+my_turtle.shape("triangle")
+dot_counts = 224
+print(my_turtle.position())
+
+my_turtle.setheading(220)
+my_turtle.penup()
+my_turtle.forward(500)
+my_turtle.setheading(0)
+dot_row = 0
+for dot in range(dot_counts):
+    random_color_set = random.choice(color_list)
+    my_turtle.dot(20, random_color_set)
+    my_turtle.penup()
+    my_turtle.forward(50)
+    my_turtle.pendown()
+    dot_row += 1
+    if dot_row == 16:
+        my_turtle.setheading(90)
+        my_turtle.penup()
+        my_turtle.forward(50)
+        my_turtle.setheading(180)
+        my_turtle.forward(800)
+        my_turtle.setheading(0)
+        my_turtle.pendown()
+        dot_row = 0
+
+
+my_screen = Screen()
+my_screen.exitonclick()
